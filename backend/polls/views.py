@@ -4,7 +4,23 @@ from django.shortcuts import get_object_or_404, render
 from django.urls import reverse
 from .models import Question, Choice
 from django.db.models import F
+from django.views import generic
 
+class IndexView(generic.ListView):
+    template_name = 'polls/index.html'
+    context_object_name = 'questions'
+
+    def get_queryset(self):
+        """Return the last five published questions."""
+        return Question.objects.order_by('-created_at')[:5]
+
+class DetailView(generic.DetailView):
+    model = Question
+    template_name: str = "polls/detail.html"
+
+class ResultsView(generic.DetailView):
+    model = Question
+    template_name: str = 'polls/results.html'
 
 # Create your views here.
 def index(request):
