@@ -1,3 +1,7 @@
+# Miniour
+Miniour is currently working and defining what I want to do, but I decide that I want to create something.
+
+
 # Database Intruccions
 
 For create a database, you need to do the following sql sentence.
