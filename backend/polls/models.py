@@ -1,12 +1,19 @@
 import datetime
 from django.db import models
 from django.utils import timezone
+from django.contrib import admin
+
 
 # Create your models here.
 class Question(models.Model):
     content = models.CharField(max_length=200)
     created_at = models.DateTimeField("data published")
 
+    @admin.display(
+        boolean=True,
+        ordering='created_at',
+        description='Published recently?'
+    )
     def was_published_recently(self):
         now = timezone.now()
         return  now - datetime.timedelta(days=1) <= self.created_at <= now 
