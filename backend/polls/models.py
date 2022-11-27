@@ -8,7 +8,8 @@ class Question(models.Model):
     created_at = models.DateTimeField("data published")
 
     def was_published_recently(self):
-        return self.created_at >= timezone.now() - datetime.timedelta(days=1)
+        now = timezone.now()
+        return  now - datetime.timedelta(days=1) <= self.created_at <= now 
 
     def __str__(self) -> str:
         return self.content

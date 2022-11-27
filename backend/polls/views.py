@@ -5,22 +5,38 @@ from django.urls import reverse
 from .models import Question, Choice
 from django.db.models import F
 from django.views import generic
+from django.utils import timezone
+
 
 class IndexView(generic.ListView):
-    template_name = 'polls/index.html'
-    context_object_name = 'questions'
+    template_name = "polls/index.html"
+    context_object_name = "questions"
 
     def get_queryset(self):
-        """Return the last five published questions."""
-        return Question.objects.order_by('-created_at')[:5]
+        """
+        Return the last five published questions (not including those set to be
+        published in the future).
+        """
+        return Question.objects.filter(created_at__lte=timezone.now()).order_by(
+            "-created_at"
+        )[:5]
+
 
 class DetailView(generic.DetailView):
     model = Question
     template_name: str = "polls/detail.html"
 
+    def get_queryset(self):
+        """
+        Excludes any questions that aren't published yet.
+        """
+        return Question.objects.filter(created_at__lte=timezone.now())
+
+
 class ResultsView(generic.DetailView):
     model = Question
-    template_name: str = 'polls/results.html'
+    template_name: str = "polls/results.html"
+
 
 # Create your views here.
 def index(request):
@@ -58,6 +74,6 @@ def vote(request, question_id: int):
         )
     else:
         # to avoid race condition https://docs.djangoproject.com/en/4.1/ref/models/expressions/#avoiding-race-conditions-using-f
-        selected_choice.votes = F('votes') + 1
+        selected_choice.votes = F("votes") + 1
         selected_choice.save()
         return HttpResponseRedirect(reverse("polls:results", args=(question.id,)))
