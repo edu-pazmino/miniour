@@ -1,7 +1,3 @@
-{% comment %} 
-You can find the template on django/contrib/admin/templates/base_site.html
-{% endcomment %}
-
 {% extends "admin/base.html" %}
 
 {% block title %}{% if subtitle %}{{ subtitle }} | {% endif %}{{ title }} | {{ site_title|default:_('Django site admin') }}{% endblock %}
@@ -11,3 +7,7 @@ You can find the template on django/contrib/admin/templates/base_site.html
 {% endblock %}
 
 {% block nav-global %}{% endblock %}
+{% comment %} 
+You can find the template on django/contrib/admin/templates/base_site.html
+{% endcomment %}
+

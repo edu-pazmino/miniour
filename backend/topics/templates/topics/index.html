@@ -1,0 +1,20 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'topics/style.css' %}" />
+
+<main>
+  {% if article_list %}
+  <article>
+    {% for article in article_list %}
+    <h1>{{article.title}}</h1>
+    <section>
+      {%if article.media.content %} {{article.media.content | safe}} {% endif %}
+      <div>
+        <a href="{{article.source_url}}">{{article.news_source.name}}</a>
+      </div>
+    </section>
+    {% endfor %}
+  </article>
+  {% else %}
+  <p>No polls are available.</p>
+  {% endif %}
+</main>

@@ -5,6 +5,22 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "🤖 Node Robot",
+            "program": "${workspaceFolder}/robots/robot.js",
+            "request": "launch",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "type": "node"
+        },
+        {
+            "name": "Start 🤖",
+            "type": "go",
+            "request": "launch",
+            "mode": "debug",
+            "program": "${workspaceFolder}/robots/main.go"
+        },
+        {
             "name": "Start Project",
             "type": "python",
             "request": "launch",

@@ -1,6 +1,8 @@
 # Miniour
 Miniour is currently working and defining what I want to do, but I decide that I want to create something.
 
+# Docs
+Usefully documentation https://docs.djangoproject.com/en/4.1/topics/
 
 # Database Intruccions
 
