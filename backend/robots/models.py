@@ -8,7 +8,7 @@ class Source(models.Model):
 
 class Sitemap(models.Model):
     description = models.CharField(max_length=200)
-    url = models.URLField()
+    url = models.URLField(unique=True)
     priority = models.FloatField()
     frequency = models.CharField(max_length=45)
     source = models.ForeignKey(Source, on_delete=models.CASCADE)
