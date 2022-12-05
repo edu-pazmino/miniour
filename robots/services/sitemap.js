@@ -6,6 +6,7 @@ const tar = require("tar-stream");
 const gunzip = require("gunzip-maybe");
 const fs = require("fs");
 const { ungzip } = require("node-gzip");
+const getSitemapXmlFromUrlTar = require("./tar");
 
 /**
  * @type {import('request')}
@@ -30,6 +31,10 @@ const resolveProviderId = (provider) => {
     return 2;
   } else if (provider.name === "PcComponentes") {
     return 1;
+  } else if (provider.name === "Amazon") {
+    return 3;
+  } else if (provider.name === "VSGamers") {
+    return 4;
   }
   return 0;
 };
@@ -39,20 +44,6 @@ const ProviderTypes = (exports.ProviderTypes = {
   Request: 2,
   Tar: 3,
 });
-
-/**
- * @typedef SitemapXml
- * @property {String} url
- * @property {Number} priority
- * @property {String} frequency
- */
-
-/**
- * @typedef Provider
- * @property {String} url
- * @property {String} name
- * @property {Number} type
- */
 
 /**
  *
@@ -107,7 +98,7 @@ async function getSitemapXml(provider) {
     case ProviderTypes.Nightmare:
       return useNightmare(provider);
     case ProviderTypes.Tar:
-      return useTar(provider);
+      return getSitemapXmlFromUrlTar(provider);
     default:
       break;
   }
@@ -125,7 +116,7 @@ async function useTar(provider) {
       const body = await request.get(provider.url, {
         gzip: true,
       });
-      const l = await ungzip(body)
+      const l = await ungzip(body);
       console.log(l.toString());
       reject(body);
       // .pipe(tar.extract())

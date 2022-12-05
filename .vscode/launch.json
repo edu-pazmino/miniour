@@ -5,6 +5,15 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "🕵🏽 Search Robot",
+            "program": "${workspaceFolder}/robots/search.js",
+            "request": "launch",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "type": "node"
+        },
+        {
             "name": "🤖 Node Robot",
             "program": "${workspaceFolder}/robots/robot.js",
             "request": "launch",

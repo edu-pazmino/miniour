@@ -4,8 +4,8 @@ const Sequelize = require("sequelize");
  * @type {import('sequelize').Sequelize}
  */
 exports.sequelize = new Sequelize({
-  host: "localhost",
-  port: "3306",
+  host: "127.0.0.1",
+  // port: "3306",
   username: "root",
   dialect: "mysql",
   database: "miniour",

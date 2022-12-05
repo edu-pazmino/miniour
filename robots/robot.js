@@ -1,6 +1,5 @@
 const { sequelize } = require("./models/sequelize");
 const {
-  nightmare,
   sitemapProcessor,
   ProviderTypes,
 } = require("./services/sitemap");
@@ -23,18 +22,23 @@ const {
     // {
     //   name: "PcComponentes",
     //   type: ProviderTypes.Nightmare,
-    //   url: "https://www.pccomponentes.com/sitemap_articles_peripherals.xml",
+    //   url: "https://www.pccomponentes.com/sitemap_articles_components.xml",
     // },
     // {
     //   name: "PcComponentes",
     //   type: ProviderTypes.Nightmare,
     //   url: "https://www.pccomponentes.com/sitemap_articles_gaming.xml",
     // },
-    {
-      name: "VsGamers",
-      type: ProviderTypes.Tar,
-      url: "https://www.vsgamers.es/sitemaps/sitemap.products.es.xml.gz",
-    },
+    // {
+    //   name: "VSGamers",
+    //   type: ProviderTypes.Tar,
+    //   url: "https://www.vsgamers.es/sitemaps/sitemap.products.es.xml.gz",
+    // },
+    // {
+    //   name: "Amazon",
+    //   type: ProviderTypes.Tar,
+    //   url: "https://www.amazon.es/sitemaps.2307ea63773dfee.SitemapIndex_0.xml.gz",
+    // },
   ];
 
   for (const provider of providers) {
