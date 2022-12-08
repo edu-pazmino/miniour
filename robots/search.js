@@ -3,12 +3,12 @@ const { Product } = require("./models/product");
 const { sequelize } = require("./models/sequelize");
 const { Sitemap } = require("./models/sitemap");
 const CoolmodBot = require("./providers/coolmod");
-const PcComponentes = require("./providers/pccomponentes");
+const PcComponentesBot = require("./providers/pccomponentes");
 const VSGamersBot = require("./providers/vsgamers");
 /**
  * @type {Array<import('./providers/generic')>}
  */
-const robots = [new PcComponentes(), new CoolmodBot(), new VSGamersBot()];
+const robots = [new PcComponentesBot(), new CoolmodBot(), new VSGamersBot()];
 
 (async () => {
   console.log(`tyring to connect to the database`);
@@ -16,9 +16,9 @@ const robots = [new PcComponentes(), new CoolmodBot(), new VSGamersBot()];
   console.log("connected to the database");
 
   ///#region Model Region
-  await sequelize.sync();
+  // await sequelize.sync();
   ///#endregion
-  const productQuery = "g502";
+  const productQuery = "g413";
   const sitemaps = await Sitemap.findAll({
     where: {
       description: {

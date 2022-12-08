@@ -1,44 +1,68 @@
 {
-    // Use IntelliSense para saber los atributos posibles.
-    // Mantenga el puntero para ver las descripciones de los existentes atributos.
-    // Para más información, visite: https://go.microsoft.com/fwlink/?linkid=830387
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "name": "🕵🏽 Search Robot",
-            "program": "${workspaceFolder}/robots/search.js",
-            "request": "launch",
-            "skipFiles": [
-                "<node_internals>/**"
-            ],
-            "type": "node"
-        },
-        {
-            "name": "🤖 Node Robot",
-            "program": "${workspaceFolder}/robots/robot.js",
-            "request": "launch",
-            "skipFiles": [
-                "<node_internals>/**"
-            ],
-            "type": "node"
-        },
-        {
-            "name": "Start 🤖",
-            "type": "go",
-            "request": "launch",
-            "mode": "debug",
-            "program": "${workspaceFolder}/robots/main.go"
-        },
-        {
-            "name": "Start Project",
-            "type": "python",
-            "request": "launch",
-            "program": "${workspaceFolder}/backend/manage.py",
-            "args": [
-                "runserver"
-            ],
-            "django": true,
-            "justMyCode": true
-        }
-    ]
+  // Use IntelliSense para saber los atributos posibles.
+  // Mantenga el puntero para ver las descripciones de los existentes atributos.
+  // Para más información, visite: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "request": "launch",
+      "name": "🤖 Deno Robot",
+      "type": "node",
+      "cwd": "${workspaceFolder}/bots/",
+      "runtimeExecutable": "/usr/local/bin/deno",
+      "runtimeArgs": [
+          "run",
+          "--inspect-brk",
+          "--allow-all",
+          "./src/main.ts"
+      ],
+      "outputCapture": "std",
+      "attachSimplePort": 9229
+    },
+    {
+      "name": "🧟‍♂️ bots runner",
+      "type": "node",
+      "request": "launch",
+      "program": "src/bootstrap.ts",
+      "cwd": "${workspaceFolder}/zombies/",
+      "skipFiles": ["<node_internals>/**", "node_modules/**"]
+    },
+    {
+      "name": "Launch Program",
+      "program": "${workspaceFolder}/app.js",
+      "request": "launch",
+      "skipFiles": ["<node_internals>/**"],
+      "type": "node"
+    },
+    {
+      "name": "🕵🏽 Search Robot",
+      "program": "${workspaceFolder}/robots/search.js",
+      "request": "launch",
+      "skipFiles": ["<node_internals>/**"],
+      "type": "node"
+    },
+    {
+      "name": "🤖 Node Robot",
+      "program": "${workspaceFolder}/robots/robot.js",
+      "request": "launch",
+      "skipFiles": ["<node_internals>/**"],
+      "type": "node"
+    },
+    {
+      "name": "Start 🤖",
+      "type": "go",
+      "request": "launch",
+      "mode": "debug",
+      "program": "${workspaceFolder}/robots/main.go"
+    },
+    {
+      "name": "Start Project",
+      "type": "python",
+      "request": "launch",
+      "program": "${workspaceFolder}/backend/manage.py",
+      "args": ["runserver"],
+      "django": true,
+      "justMyCode": true
+    }
+  ]
 }

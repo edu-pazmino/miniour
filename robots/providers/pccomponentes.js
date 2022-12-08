@@ -2,7 +2,7 @@ const Nightmare = require("nightmare");
 const { ProviderTypes } = require("../services/sitemap");
 const ProviderGeneric = require("./generic");
 
-module.exports = class PcComponentes extends ProviderGeneric {
+module.exports = class PcComponentesBot extends ProviderGeneric {
   /**
    *
    * @param {import('../models/sitemap').Sitemap} sitemap
