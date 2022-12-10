@@ -5,27 +5,12 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "name": "🧟‍♂️ Zombies runners",
+      "type": "node-terminal",
       "request": "launch",
-      "name": "🤖 Deno Robot",
-      "type": "node",
-      "cwd": "${workspaceFolder}/bots/",
-      "runtimeExecutable": "/usr/local/bin/deno",
-      "runtimeArgs": [
-          "run",
-          "--inspect-brk",
-          "--allow-all",
-          "./src/main.ts"
-      ],
-      "outputCapture": "std",
-      "attachSimplePort": 9229
-    },
-    {
-      "name": "🧟‍♂️ bots runner",
-      "type": "node",
-      "request": "launch",
-      "program": "src/bootstrap.ts",
-      "cwd": "${workspaceFolder}/zombies/",
-      "skipFiles": ["<node_internals>/**", "node_modules/**"]
+      "cwd": "${workspaceFolder}/zombies",
+      "command": "npm start",
+      "internalConsoleOptions": "openOnFirstSessionStart"
     },
     {
       "name": "Launch Program",
