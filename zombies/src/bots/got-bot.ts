@@ -1,9 +1,11 @@
-import got, { Got } from "got";
-import { CookieJar } from "tough-cookie";
-import { Bot } from "./bot.js";
 import { CheerioAPI, load as loadPage } from "cheerio";
+import got, { Got } from "got";
+import { injectable } from "inversify";
+import { CookieJar } from "tough-cookie";
 import { isFalsy } from "utility-types";
+import { Bot } from "./bot.js";
 
+@injectable()
 export class GotBot implements Bot {
   private client: Got;
   private currentPage: string;

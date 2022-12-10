@@ -1,16 +1,19 @@
-import { GotBot } from "./bots/got-bot.js";
+import "reflect-metadata";
+
+import { Container } from "inversify";
+import { ProductModule } from "./apps/products/product.module.js";
+import { BotsModule } from "./bots/bots.module.js";
+import { Engine } from "./core/engine.js";
 
 (async () => {
   try {
     console.log("starting to become zombies");
+    const container = new Container();
 
-    const bot = new GotBot();
-    const selector = "h2[data-name=main-title]";
-    await bot.navigate("https://www.logitechg.com/es-es/");
-    const content = await bot.findText(selector);
+    const engine = new Engine(container);
+    engine.register([new BotsModule(), new ProductModule()]);
 
-    console.log(content);
-    await bot.destroy();
+    engine.run();
   } catch (ex) {
     console.error(ex);
   }

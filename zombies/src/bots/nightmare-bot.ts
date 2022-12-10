@@ -1,3 +1,4 @@
+import { injectable } from "inversify";
 import Nightmare from "nightmare";
 import { isFalsy } from "utility-types";
 import { Bot } from "./bot.js";
@@ -5,7 +6,8 @@ import { Bot } from "./bot.js";
 const selectText = (selector: string) =>
   document.querySelector(selector).innerHTML;
 
-export class BrowserBot implements Bot {
+@injectable()
+export class NightmareBot implements Bot {
   private readonly nightmare: Nightmare;
 
   constructor() {

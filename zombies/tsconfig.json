@@ -4,6 +4,7 @@
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
     "lib": ["ESNext", "DOM"],
+    "types": ["reflect-metadata"],
     "esModuleInterop": true,
     "rootDir": ".",
     "outDir": "out",
@@ -13,6 +14,8 @@
       "/*": ["./*.ts", "./*.js", "./*"]
     },
     "allowSyntheticDefaultImports": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
     "importHelpers": true,
     "alwaysStrict": true,
     "sourceMap": true,
