@@ -1,33 +1,29 @@
 {
   "compilerOptions": {
-    "target": "ES2022",
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext",
-    "lib": ["ESNext", "DOM"],
-    "types": ["reflect-metadata"],
-    "esModuleInterop": true,
-    "rootDir": ".",
-    "outDir": "out",
-    "paths": {
-      "/*.ts": ["./*.ts"],
-      "/*.js": ["./*.js"],
-      "/*": ["./*.ts", "./*.js", "./*"]
-    },
-    "allowSyntheticDefaultImports": true,
+    "module": "commonjs",
+    "declaration": true,
+    "removeComments": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "importHelpers": true,
-    "alwaysStrict": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "es2017",
     "sourceMap": true,
-    "forceConsistentCasingInFileNames": true,
-    "noFallthroughCasesInSwitch": true,
-    "noImplicitReturns": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noImplicitAny": false,
-    "noImplicitThis": false,
+    "outDir": "./dist",
+    "baseUrl": "./",
+    "incremental": true,
+    "skipLibCheck": true,
     "strictNullChecks": false,
-    "skipLibCheck": true
-  },
-  "include": ["src/**/*", "__tests__/**/*"]
+    "noImplicitAny": false,
+    "strictBindCallApply": false,
+    "forceConsistentCasingInFileNames": false,
+    "noFallthroughCasesInSwitch": false,
+    "paths": {
+      "@app/bots": [
+        "libs/bots/src"
+      ],
+      "@app/bots/*": [
+        "libs/bots/src/*"
+      ]
+    }
+  }
 }

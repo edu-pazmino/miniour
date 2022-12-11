@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json.schemastore.org/nest-cli",
+  "collection": "@nestjs/schematics",
+  "sourceRoot": "apps/zombies/src",
+  "monorepo": true,
+  "root": "apps/zombies",
+  "compilerOptions": {
+    "webpack": true,
+    "tsConfigPath": "apps/zombies/tsconfig.app.json"
+  },
+  "projects": {
+    "zombies": {
+      "type": "application",
+      "root": "apps/zombies",
+      "entryFile": "main",
+      "sourceRoot": "apps/zombies/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/zombies/tsconfig.app.json"
+      }
+    },
+    "products": {
+      "type": "application",
+      "root": "apps/products",
+      "entryFile": "main",
+      "sourceRoot": "apps/products/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/products/tsconfig.app.json"
+      }
+    },
+    "bots": {
+      "type": "library",
+      "root": "libs/bots",
+      "entryFile": "index",
+      "sourceRoot": "libs/bots/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/bots/tsconfig.lib.json"
+      }
+    }
+  }
+}

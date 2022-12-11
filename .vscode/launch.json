@@ -5,12 +5,14 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "🧟‍♂️ Zombies runners",
-      "type": "node-terminal",
+      "type": "node",
       "request": "launch",
-      "cwd": "${workspaceFolder}/zombies",
-      "command": "npm start",
-      "internalConsoleOptions": "openOnFirstSessionStart"
+      "name": "Debug Nest Framework",
+      "args": ["${workspaceFolder}/src/main.ts"],
+      "runtimeArgs": ["--nolazy", "-r", "ts-node/register"],
+      "sourceMaps": true,
+      "cwd": "${workspaceRoot}",
+      "protocol": "inspector"
     },
     {
       "name": "Launch Program",
