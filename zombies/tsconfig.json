@@ -23,6 +23,12 @@
       ],
       "@app/bots/*": [
         "libs/bots/src/*"
+      ],
+      "@app/stores": [
+        "libs/stores/src"
+      ],
+      "@app/stores/*": [
+        "libs/stores/src/*"
       ]
     }
   }

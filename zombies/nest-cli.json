@@ -3,21 +3,12 @@
   "collection": "@nestjs/schematics",
   "sourceRoot": "apps/zombies/src",
   "monorepo": true,
-  "root": "apps/zombies",
+  "root": "libs/bots",
   "compilerOptions": {
     "webpack": true,
-    "tsConfigPath": "apps/zombies/tsconfig.app.json"
+    "tsConfigPath": "apps/products/tsconfig.app.json"
   },
   "projects": {
-    "zombies": {
-      "type": "application",
-      "root": "apps/zombies",
-      "entryFile": "main",
-      "sourceRoot": "apps/zombies/src",
-      "compilerOptions": {
-        "tsConfigPath": "apps/zombies/tsconfig.app.json"
-      }
-    },
     "products": {
       "type": "application",
       "root": "apps/products",
@@ -34,6 +25,15 @@
       "sourceRoot": "libs/bots/src",
       "compilerOptions": {
         "tsConfigPath": "libs/bots/tsconfig.lib.json"
+      }
+    },
+    "stores": {
+      "type": "library",
+      "root": "libs/stores",
+      "entryFile": "index",
+      "sourceRoot": "libs/stores/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/stores/tsconfig.lib.json"
       }
     }
   }

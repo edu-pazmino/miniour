@@ -15,7 +15,7 @@ export class ProductsService {
 
   getHello(): Observable<ProductItem[]> {
     this.botService.navigate(
-      'https://www.vsgamers.es/category/perifericos/monitores',
+      'http://localhost:8080/vsgamers/product_list.html',
     );
 
     return this.botService.findObject<ProductItem>('.vs-product-card', {
