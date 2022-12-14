@@ -10,4 +10,7 @@ export class StoreCategory {
 
   @Column()
   url: string;
+
+  @Column({ name: 'external_id' })
+  externalId: string;
 }

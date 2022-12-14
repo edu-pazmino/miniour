@@ -1,6 +1,7 @@
 import { HttpBotService } from '@app/bots/services/http-bot.service';
 import { Injectable } from '@nestjs/common';
 import { Observable } from 'rxjs';
+import { CreateProductDto } from './dto/create-product.dto';
 
 export type ProductItem = {
   brand: string;
@@ -11,18 +12,9 @@ export type ProductItem = {
 
 @Injectable()
 export class ProductsService {
-  constructor(private readonly botService: HttpBotService) {}
+  constructor(private readonly productService: ProductsService) {}
 
-  getHello(): Observable<ProductItem[]> {
-    this.botService.navigate(
-      'http://localhost:8080/vsgamers/product_list.html',
-    );
-
-    return this.botService.findObject<ProductItem>('.vs-product-card', {
-      brand: '.vs-product-card-detail-brand',
-      category: '.vs-product-card-detail-category',
-      name: '.vs-product-card-title a',
-      price: '.vs-product-card-prices-price',
-    });
+  save(products: CreateProductDto[]): Observable<ProductItem[]> {
+    return this.productService.save(products);
   }
 }
