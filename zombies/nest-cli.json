@@ -35,6 +35,15 @@
       "compilerOptions": {
         "tsConfigPath": "libs/stores/tsconfig.lib.json"
       }
+    },
+    "pccomponentes": {
+      "type": "application",
+      "root": "apps/pccomponentes",
+      "entryFile": "main",
+      "sourceRoot": "apps/pccomponentes/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/pccomponentes/tsconfig.app.json"
+      }
     }
   }
 }

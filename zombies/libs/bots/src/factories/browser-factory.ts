@@ -3,6 +3,9 @@ import * as Nightmare from 'nightmare';
 
 @Injectable()
 export class BrowserFactory {
+  end() {
+    return this.browser.end();
+  }
   private browser: Nightmare;
 
   constructor() {

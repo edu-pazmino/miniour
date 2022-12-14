@@ -8,13 +8,13 @@ describe('ProductsController', () => {
   let productsController: ProductsController;
 
   beforeEach(async () => {
-    const app: TestingModule = await Test.createTestingModule({
-      imports: [HttpModule, BotsModule],
-      controllers: [ProductsController],
-      providers: [ProductsService],
-    }).compile();
+    // const app: TestingModule = await Test.createTestingModule({
+    //   imports: [HttpModule, BotsModule],
+    //   controllers: [ProductsController],
+    //   providers: [ProductsService],
+    // }).compile();
 
-    productsController = app.get<ProductsController>(ProductsController);
+    // productsController = app.get<ProductsController>(ProductsController);
   });
 
   describe('root', () => {
